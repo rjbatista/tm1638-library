@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map For TM1638 Lib
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+TM1638  KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setSegments KEYWORD2
+setLEDs KEYWORD2
+getButtons  KEYWORD2
+sendCommand KEYWORD2
+sendData    KEYWORD2
+send    KEYWORD2
+receive KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
