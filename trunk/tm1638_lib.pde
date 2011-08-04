@@ -6,13 +6,13 @@ unsigned char hello[] = {
 
 TM1638 module1(2, 3, 4);
 TM1638 module2(2, 3, 5);
-
-unsigned long value = 87654321L;
+unsigned long value = 0L;
+boolean state = true;
 
 void setup()
 {  
-  module1.setDisplay(helloLCD);	  
-  module2.setDisplay(helloLCD);	  
+  module1.setDisplay(hello);	  
+  module2.setDisplay(hello);	  
  
   module1.setLEDs(0b00011111 | 0b11111000 << 8);
 
@@ -20,7 +20,6 @@ void setup()
   module2.setLED(TM1638_COLOR_GREEN, 5);
   module2.setLED(TM1638_COLOR_RED | TM1638_COLOR_GREEN, 7);
 }
-
 
 void loop()
 {
@@ -42,6 +41,13 @@ void loop()
       module2.setDisplayToBinNumber(key1, 0);
 
       module1.setLEDs(key1);
+      
+      if (key1 & 128) {
+        state = !state;
+        delay(200); // just wait for button up
+      }
+      
+      module1.setupDisplay(state, key1 >> 1);
     }
 
     if (key2 != 0) {

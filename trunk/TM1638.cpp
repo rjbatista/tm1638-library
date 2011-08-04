@@ -61,7 +61,7 @@ const byte ERROR[] = {
   0
 };
 
-TM1638::TM1638(byte dataPin, byte clockPin, byte strobePin)
+TM1638::TM1638(byte dataPin, byte clockPin, byte strobePin, boolean activateDisplay, byte intensity)
 {
   this->dataPin = dataPin;
   this->clockPin = clockPin;
@@ -74,8 +74,8 @@ TM1638::TM1638(byte dataPin, byte clockPin, byte strobePin)
   digitalWrite(strobePin, HIGH);
   digitalWrite(clockPin, HIGH);
 
-  sendCommand(0x8B);
   sendCommand(0x40);
+  sendCommand(0x80 | (activateDisplay ? 8 : 0) | min(7, intensity));
   
   digitalWrite(strobePin, LOW);
   send(0xC0);
@@ -84,6 +84,12 @@ TM1638::TM1638(byte dataPin, byte clockPin, byte strobePin)
   }
   digitalWrite(strobePin, HIGH);
 }
+
+void TM1638::setupDisplay(boolean active, byte intensity)
+{
+  sendCommand(0x80 | (active ? 8 : 0) | min(7, intensity));
+}
+
 
 void TM1638::setDisplayToHexNumber(unsigned long number, byte dots)
 {
