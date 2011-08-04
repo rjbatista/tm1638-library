@@ -28,8 +28,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class TM1638
 {
-  public:  
-    TM1638(byte dataPin, byte clockPin, byte strobePin);
+  public:
+    /** Instantiate a tm1638 module specifying the display state, the starting intensity (0-7) data, clock and stobe pins. */
+    TM1638(byte dataPin, byte clockPin, byte strobePin, boolean activateDisplay = true, byte intensity = 7);
+
+    /** Set the display (segments and LEDs) active or off and intensity (range from 0-7). */
+    void setupDisplay(boolean active, byte intensity);
 
     /** Set the display to a unsigned hexadecimal number */
     void setDisplayToHexNumber(unsigned long number, byte dots);
