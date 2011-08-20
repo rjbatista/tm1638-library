@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TM1638_h
 
 #include <WProgram.h>
+#include "TM1638Fonts.h"
 
 #define TM1638_COLOR_RED    1
 #define TM1638_COLOR_GREEN  2
@@ -45,6 +46,10 @@ class TM1638
     void setDisplayDigit(byte digit, byte pos, boolean dot);
     /** Set the display to the 8 values (left to right) */
     void setDisplay(const byte values[]);
+    /** Clear the display */
+	void clearDisplay();
+    /** Set the display to the string (defaults to built in font) */
+	void setDisplayToString(const char* string, const byte font[] = FONT_DEFAULT);
 
     /** Set the LED at pos to color (TM1638_COLOR_RED, TM1638_COLOR_GREEN or both) */
     void setLED(byte color, byte pos);

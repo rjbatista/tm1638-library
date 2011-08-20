@@ -21,46 +21,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "WProgram.h"
 #include "TM1638.h"
 
-/*
-The bits are displayed by mapping bellow
- -- 0 --
-|       |
-5       1
- -- 6 --
-4       2
-|       |
- -- 3 --  .7
-*/
-const byte NUMBER_DATA[] = {
-  0b00111111, // 0
-  0b00000110, // 1
-  0b01011011, // 2
-  0b01001111, // 3
-  0b01100110, // 4
-  0b01101101, // 5
-  0b01111101, // 6
-  0b00000111, // 7
-  0b01111111, // 8
-  0b01101111, // 9
-  0b01110111, // A
-  0b01111100, // B
-  0b00111001, // C
-  0b01011110, // D
-  0b01111001, // E
-  0b01110001  // F
-};
-
-const byte ERROR[] = {
-  0b01111001, // E
-  0b01010000, // r
-  0b01010000, // r
-  0b01011100, // o
-  0b01010000, // r
-  0,
-  0,
-  0
-};
-
 TM1638::TM1638(byte dataPin, byte clockPin, byte strobePin, boolean activateDisplay, byte intensity)
 {
   this->dataPin = dataPin;
@@ -131,6 +91,20 @@ void TM1638::setDisplay(const byte values[])
 {
   for (int i = 0; i < 8; i++) {
     sendData(i << 1, values[i]);
+  }
+}
+
+void TM1638::clearDisplay()
+{
+  for (int i = 0; i < 8; i++) {
+    sendData(i << 1, 0);
+  }
+}
+
+void TM1638::setDisplayToString(const char* string, const byte font[])
+{
+  for (int i = 0; i < 8; i++) {
+    sendData(i << 1, font[string[i] - 32]);
   }
 }
 

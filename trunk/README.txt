@@ -10,7 +10,8 @@ Includes:
 - Helper methods for displaying numbers in decimal, hexadecimal and binary;
 - Support for multiple chained tm1638;
 - Reading simultaneous button presses;
-- Support for dimming the display and LEDs.
+- Support for dimming the display and LEDs;
+- Support for writing text.
 
 See: TM1638 Display/LED module at http://www.dealextreme.com/p/81873?r=68099021
 
