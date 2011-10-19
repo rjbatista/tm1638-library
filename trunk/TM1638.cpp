@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "WProgram.h"
 #include "TM1638.h"
+#include "String.h"
 
 TM1638::TM1638(byte dataPin, byte clockPin, byte strobePin, boolean activateDisplay, byte intensity)
 {
@@ -118,6 +119,19 @@ void TM1638::setDisplayToString(const char* string, const byte font[])
 {
   for (int i = 0; i < 8; i++) {
     sendData(i << 1, font[string[i] - 32]);
+  }
+}
+
+void TM1638::setDisplayToString(const String string, const byte font[])
+{
+  int stringLength = string.length();
+
+  for (int i = 0; i < 8; i++) {
+    if (i < stringLength) {
+		sendData(i << 1, font[string.charAt(i) - 32]);
+	} else {
+		sendData(i << 1, 0);
+	}
   }
 }
 
