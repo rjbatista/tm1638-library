@@ -1,0 +1,15 @@
+Version 1.3.0
+
+- added support for removing leading zeros in displaying numbers.
+
+Version 1.2.0
+
+- added support for writing text.
+
+Version 1.1.0
+
+- restructuring and added 2 proper examples, available in the arduino ide.
+
+Version 1.0.0
+
+- initial Release.
