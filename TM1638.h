@@ -36,14 +36,16 @@ class TM1638
     /** Set the display (segments and LEDs) active or off and intensity (range from 0-7). */
     void setupDisplay(boolean active, byte intensity);
 
-    /** Set the display to a unsigned hexadecimal number */
-    void setDisplayToHexNumber(unsigned long number, byte dots);
-    /** Set the display to a unsigned decimal number */
-    void setDisplayToDecNumber(unsigned long number, byte dots);
+    /** Set the display to a unsigned hexadecimal number (with or without leading zeros) */
+    void setDisplayToHexNumber(unsigned long number, byte dots, boolean leadingZeros = true);
+    /** Set the display to a unsigned decimal number (with or without leading zeros) */
+    void setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros = true);
     /** Set the display to a unsigned binary number */
     void setDisplayToBinNumber(byte number, byte dots);
     /** Set a single display at pos (starting at 0) to a digit (left to right) */ 
     void setDisplayDigit(byte digit, byte pos, boolean dot);
+    /** Clear  a single display at pos (starting at 0, left to right) */ 
+    void clearDisplayDigit(byte pos, boolean dot);
     /** Set the display to the 8 values (left to right) */
     void setDisplay(const byte values[]);
     /** Clear the display */
@@ -72,4 +74,3 @@ class TM1638
 };
 
 #endif
-

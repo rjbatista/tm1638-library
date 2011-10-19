@@ -51,15 +51,19 @@ void TM1638::setupDisplay(boolean active, byte intensity)
 }
 
 
-void TM1638::setDisplayToHexNumber(unsigned long number, byte dots)
+void TM1638::setDisplayToHexNumber(unsigned long number, byte dots, boolean leadingZeros)
 {
   for (int i = 0; i < 8; i++) {
-    setDisplayDigit(number & 0xF, 7 - i, (dots & (1 << i)) != 0);
-    number >>= 4;
+	if (!leadingZeros && number == 0) {
+		clearDisplayDigit(7 - i, (dots & (1 << i)) != 0);
+	} else {
+		setDisplayDigit(number & 0xF, 7 - i, (dots & (1 << i)) != 0);
+		number >>= 4;
+    }
   }
 }
 
-void TM1638::setDisplayToDecNumber(unsigned long number, byte dots)
+void TM1638::setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros)
 {
   if (number > 99999999L) {
     setDisplay(ERROR);
@@ -69,7 +73,11 @@ void TM1638::setDisplayToDecNumber(unsigned long number, byte dots)
         setDisplayDigit(number % 10, 7 - i, (dots & (1 << i)) != 0);
         number /= 10;
       } else {
-        setDisplayDigit(0, 7 - i, (dots & (1 << i)) != 0);
+	    if (leadingZeros) {
+			setDisplayDigit(0, 7 - i, (dots & (1 << i)) != 0);
+		} else {
+			clearDisplayDigit(7 - i, (dots & (1 << i)) != 0);
+		}
       }
     }
   }
@@ -85,6 +93,11 @@ void TM1638::setDisplayToBinNumber(byte number, byte dots)
 void TM1638::setDisplayDigit(byte digit, byte pos, boolean dot)
 {
   sendData(pos << 1, NUMBER_DATA[digit & 0xF] | (dot ? 0b10000000 : 0));
+}
+
+void TM1638::clearDisplayDigit(byte pos, boolean dot)
+{
+  sendData(pos << 1, (dot ? 0b10000000 : 0));
 }
 
 void TM1638::setDisplay(const byte values[])
