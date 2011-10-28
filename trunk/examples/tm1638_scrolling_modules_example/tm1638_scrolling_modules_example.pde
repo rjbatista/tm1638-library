@@ -22,10 +22,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // define a modules
 TM1638 modules[] = {
-	TM1638(3, 2, 4),
-	TM1638(3, 2, 5),
-	TM1638(3, 2, 6),
-	TM1638(3, 2, 7)
+	TM1638(8, 9, 7),
+	TM1638(8, 9, 6),
+	TM1638(8, 9, 5),
+	TM1638(8, 9, 4)
 };
 
 void setup() {
