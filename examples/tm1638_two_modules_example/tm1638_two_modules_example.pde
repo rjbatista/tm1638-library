@@ -24,9 +24,9 @@ const byte hello[] = {
 };
 
 // define the first module
-TM1638 module1(3, 2, 4);
+TM1638 module1(8, 9, 7);
 // to chain modules, use the same clk and data - just specify a different strobe pin
-TM1638 module2(3, 2, 5);
+TM1638 module2(8, 9, 6);
 
 unsigned long value = 0L;
 boolean state = true;
