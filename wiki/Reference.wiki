@@ -1,0 +1,40 @@
+#summary Reference for the TM1638 library
+#sidebar TableOfContents
+
+= TM1638 library =
+
+This is a library for interacting an arduino with a TM1638 module.
+
+The [http://www.dealextreme.com/p/81873?r=68099021 TM1638 module] is a module with 8x 7-segment display (8 digits), 8x 2 color (red and green) LED and 8x buttons and is controlled using serial commands.
+
+The TM1638 module is designed to be chainable. It uses only one pin for _clock_, one pin for _data_ and an additional pin (_strobe_) for each module you chain up to 6... that's a total of 8 pins for controlling 48 (8x6) 7-segment digits, 48 buttons and 96 LEDs (48 red and 48 green).
+
+Great to use as a "helper/debugging" module.
+
+= Usage =
+
+This library is designed to allow usage of simultaneous independent modules (chained or unchained).
+
+Basic usage is:
+{{{
+TM1638 module(8, 9, 7);
+}}}
+
+This defines a module with data on pin 8, clock on pin 9 and strobe on pin 7.
+
+Chaining modules is as easy as:
+{{{
+TM1638 module1(8, 9, 7);
+TM1638 module2(8, 9, 6);
+}}}
+
+This defines tow modules with data on pin 8, clock on pin 9 and strobes on pin 6 and 7.
+
+= Library Reference =
+
+== Constructors ==
+
+||||| Ntete ||||
+|| gwergwe ewg ewr || gergwergwe || g ewrgwe ||
+
+== Methods ==
