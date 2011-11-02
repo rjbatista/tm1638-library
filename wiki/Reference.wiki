@@ -32,9 +32,12 @@ This defines tow modules with data on pin 8, clock on pin 9 and strobes on pin 6
 
 = Library Reference =
 
+[TableOfContents Full Reference]
+
 == Constructors ==
 
-||||| Ntete ||||
-|| gwergwe ewg ewr || gergwergwe || g ewrgwe ||
+[Default Default Constructor]
 
 == Methods ==
+
+|| [Method Method] || Description ||
