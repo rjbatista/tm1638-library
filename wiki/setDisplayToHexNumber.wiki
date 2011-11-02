@@ -1,4 +1,4 @@
-#summary setDisplayToDecNumber Reference.
+#summary setDisplayToHexNumber Reference.
 #labels Phase-Implementation
 
 = setDisplayToHexNumber Reference =
