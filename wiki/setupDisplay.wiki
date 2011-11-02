@@ -1,0 +1,27 @@
+#summary setupDisplay Reference.
+#labels Phase-Implementation
+
+= setupDisplay Reference =
+
+Set the display (all 7-segments) and LEDs on or off and the specifies the intensity.
+
+{{{
+void setupDisplay(boolean active, byte intensity);
+}}}
+
+|| Argument || Detail || Default ||
+|| active || _true_ for on, _false_ for off || _required_ ||
+|| intensity || 0 for  || _required_ ||
+
+= Example =
+
+Activate display at maximum intensity:
+{{{
+module1.setupDisplay(true, 7);
+}}}
+
+
+Inactivate the display and set the intensity to the lowest:
+{{{
+module1.setupDisplay(false, 0);
+}}}
