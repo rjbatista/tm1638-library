@@ -36,7 +36,7 @@ This defines tow modules with data on pin 8, clock on pin 9 and strobes on pin 6
 
 == Constructors ==
 
-[Default Default Constructor]
+[DefaultConstrutor Default Constructor]
 
 == Methods ==
 
