@@ -1,1 +1,17 @@
   * [Reference Library Reference]
+    * Constructors
+      * [Default Default]
+    * Methods
+      * [clearDisplay          clearDisplay]
+      * [clearDisplayDigit     clearDisplayDigit]
+      * [getButtons            getButtons]
+      * [setDisplay            setDisplay]
+      * [setDisplayDigit       setDisplayDigit]
+      * [setDisplayToBinNumber setDisplayToBinNumber]
+      * [setDisplayToDecNumber setDisplayToDecNumber]
+      * [setDisplayToHexNumber setDisplayToHexNumber]
+      * [setDisplayToString    setDisplayToString]
+      * [setDisplayToString    setDisplayToString]
+      * [setLED                setLED]
+      * [setLEDs               setLEDs]
+      * [setupDisplay          setupDisplay]
