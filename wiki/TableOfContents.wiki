@@ -1,6 +1,6 @@
   * [Reference Library Reference]
     * Constructors
-      * [Default Default]
+      * [DefaultConstrutor Default]
     * Methods
       * [clearDisplay          clearDisplay]
       * [clearDisplayDigit     clearDisplayDigit]
