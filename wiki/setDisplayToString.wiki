@@ -10,7 +10,7 @@ void setDisplayToString(const char* string, const byte font[]);
 }}}
 
 || Argument || Detail || Default ||
-|| string || The number to display || _required_ ||
+|| string || The text to display || _required_ ||
 || font || The font (segment data) to use, defaulting to the built-in font. || FONT_DEFAULT, the built-in font ||
 
 = Example =
