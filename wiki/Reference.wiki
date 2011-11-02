@@ -28,7 +28,7 @@ TM1638 module1(8, 9, 7);
 TM1638 module2(8, 9, 6);
 }}}
 
-This defines tow modules with data on pin 8, clock on pin 9 and strobes on pin 6 and 7.
+This defines two modules with data on pin 8, clock on pin 9 and strobes on pin 6 and 7.
 
 = Library Reference =
 
