@@ -6,7 +6,7 @@
 Clears the display.
 
 {{{
-module.clearDisplay();
+void clearDisplay();
 }}}
 
 || Argument || Detail || Default ||
