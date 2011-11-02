@@ -1,0 +1,22 @@
+#summary setDisplayDigit Reference.
+#labels Phase-Implementation
+
+= setDisplayDigit Reference =
+
+Set a single display to a digit.
+
+{{{
+void setDisplayDigit(byte digit, byte pos, boolean dot);
+}}}
+
+|| Argument || Detail || Default ||
+|| digit|| The digit to set || _required_ ||
+|| pos|| The 7-segment display to set. 0 for the leftmost, 8 for the rightmost || _required_ ||
+|| dot|| The dot status for the display || _required_ ||
+
+= Example =
+
+Set the leftmost display to a "6.":
+{{{
+module1.setDisplayDigit(6, 0, true);
+}}}
