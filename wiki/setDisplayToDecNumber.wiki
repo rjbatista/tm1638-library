@@ -23,5 +23,5 @@ module1.setDisplayToDecNumber(33, 1);
 
 Display 15 in decimal with no dots and no leading zeroes:
 {{{
-module1.setDisplayToBinNumber(15, 0, false);
+module1.setDisplayToDecNumber(15, 0, false);
 }}}
