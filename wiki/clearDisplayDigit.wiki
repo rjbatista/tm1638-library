@@ -1,0 +1,26 @@
+#summary clearDisplayDigit Reference.
+#labels Phase-Implementation
+
+= clearDisplayDigit Reference =
+
+Clear a single 7-segment display.
+
+{{{
+void clearDisplayDigit(byte pos, boolean dot);
+}}}
+
+|| Argument || Detail || Default ||
+|| pos || The display to clear, starting at position 0 (leftmost) to  to 8 (rightmost). || _required_ ||
+|| dot || The dot state on the 7-segment display || _required_ ||
+
+= Example =
+
+Clear the second 7-segment display (counting from the left), but leave the dot lit.
+{{{
+module1.clearDisplayDigit(1, true);
+}}}
+
+Clear the third 7-segment display (counting from the left), including the dot.
+{{{
+module1.clearDisplayDigit(2, true);
+}}}
