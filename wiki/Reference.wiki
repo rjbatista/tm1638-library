@@ -1,4 +1,5 @@
 #summary Reference for the TM1638 library
+#labels Phase-Implementation,Featured
 #sidebar TableOfContents
 
 = TM1638 library =
@@ -40,4 +41,17 @@ This defines two modules with data on pin 8, clock on pin 9 and strobes on pin 6
 
 == Methods ==
 
-|| [Method Method] || Description ||
+|| *Method* || *Description* ||
+|| [clearDisplay clearDisplay] || Clears the display. ||
+|| [clearDisplayDigit clearDisplayDigit] || Clear a single 7-segment display. ||
+|| [getButtons getButtons] || Returns the pressed buttons as a bit set (left to right). ||
+|| [setDisplay setDisplay] || Set the 7-segment displays to the 8 values (left to right). ||
+|| [setDisplayDigit setDisplayDigit] || Set a single display to a digit. ||
+|| [setDisplayToBinNumber setDisplayToBinNumber] || Set the display to a binary number. ||
+|| [setDisplayToDecNumber setDisplayToDecNumber] || Set the display to a unsigned decimal number, with or without leading zeros. ||
+|| [setDisplayToHexNumber setDisplayToHexNumber] || Set the display to a unsigned hexadecimal number, with or without leading zeros. ||
+|| [setDisplayToString    setDisplayToString(char*)] || Set the display to the string. ||
+|| [setDisplayToString_String    setDisplayToString(String)] || Set the display to the string. ||
+|| [setLED                setLED] || Controls a LED. ||
+|| [setLEDs               setLEDs] || Set all the LEDs. ||
+|| [setupDisplay          setupDisplay] || Set the display (all 7-segments) and LEDs on or off and the specifies the intensity. ||
