@@ -3,8 +3,6 @@ TM1638.h - Library for TM1638.
 
 Copyright (C) 2011 Ricardo Batista <rjbatista at gmail dot com>
 
-Based on a sketch by: Martin Hubacek (http://www.martinhubacek.cz)
-
 This program is free software: you can redistribute it and/or modify
 it under the terms of the version 3 GNU General Public License as
 published by the Free Software Foundation.

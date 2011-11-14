@@ -3,8 +3,6 @@ TM1638.h - Library for TM1638.
 
 Copyright (C) 2011 Ricardo Batista (rjbatista <at> gmail <dot> com)
 
-Based on a sketch by: Martin Hubacek (http://www.martinhubacek.cz)
-
 This program is free software: you can redistribute it and/or modify
 it under the terms of the version 3 GNU General Public License as
 published by the Free Software Foundation.
@@ -118,7 +116,7 @@ void TM1638::clearDisplay()
 void TM1638::setDisplayToString(const char* string, const byte dots, const byte font[])
 {
   for (int i = 0; i < 8; i++) {
-    sendData(i << 1, font[string[i] - 32] | ((dots & (1 << i)) != 0 ? 0b10000000 : 0));
+    sendData(i << 1, font[string[i] - 32] | ((dots & (1 << (7 - i))) != 0 ? 0b10000000 : 0));
   }
 }
 
@@ -128,7 +126,7 @@ void TM1638::setDisplayToString(const String string, const byte dots, const byte
 
   for (int i = 0; i < 8; i++) {
     if (i < stringLength) {
-      sendData(i << 1, font[string.charAt(i) - 32] | ((dots & (1 << i)) != 0 ? 0b10000000 : 0));
+      sendData(i << 1, font[string.charAt(i) - 32] | ((dots & (1 << (7 - i))) != 0 ? 0b10000000 : 0));
     } else {
       sendData(i << 1, 0);
     }

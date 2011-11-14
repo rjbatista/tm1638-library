@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <TM1638.h>
 
-// define a module on data pin 3, clock pin 9 and strobe pin 7
+// define a module on data pin 8, clock pin 9 and strobe pin 7
 TM1638 module(8, 9, 7);
 
 void setup() {
