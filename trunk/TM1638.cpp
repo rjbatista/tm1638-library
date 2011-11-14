@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "WProgram.h"
 #include "TM1638.h"
-#include "String.h"
+#include "string.h"
 
 TM1638::TM1638(byte dataPin, byte clockPin, byte strobePin, boolean activateDisplay, byte intensity)
 {
