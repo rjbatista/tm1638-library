@@ -51,7 +51,7 @@ This defines two modules with data on pin 8, clock on pin 9 and strobes on pin 6
 || [setDisplayToDecNumber setDisplayToDecNumber] || Set the display to a unsigned decimal number, with or without leading zeros. ||
 || [setDisplayToHexNumber setDisplayToHexNumber] || Set the display to a unsigned hexadecimal number, with or without leading zeros. ||
 || [setDisplayToString    setDisplayToString(char*)] || Set the display to the string. ||
-|| [setDisplayToString_String    setDisplayToString(String)] || Set the display to the string. ||
+|| [setDisplayToString2    setDisplayToString(String)] || Set the display to the string. ||
 || [setLED                setLED] || Controls a LED. ||
 || [setLEDs               setLEDs] || Set all the LEDs. ||
 || [setupDisplay          setupDisplay] || Set the display (all 7-segments) and LEDs on or off and the specifies the intensity. ||
