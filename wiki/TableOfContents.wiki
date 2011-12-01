@@ -12,7 +12,7 @@
       * [setDisplayToDecNumber setDisplayToDecNumber]
       * [setDisplayToHexNumber setDisplayToHexNumber]
       * [setDisplayToString    setDisplayToString(char*)]
-      * [setDisplayToString_String    setDisplayToString(String)]
+      * [setDisplayToString2   setDisplayToString(String)]
       * [setLED                setLED]
       * [setLEDs               setLEDs]
       * [setupDisplay          setupDisplay]
