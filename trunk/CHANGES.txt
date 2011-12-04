@@ -1,3 +1,6 @@
+- ISSUE #7: New character data in default font for '*';
+- Minor optimization on inverted TM1638.
+
 Version 1.5.0
 
 - support for inverted module;
