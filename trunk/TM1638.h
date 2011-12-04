@@ -35,19 +35,26 @@ class TM1638
   public:
     /** Instantiate a tm1638 module specifying the display state, the starting intensity (0-7) data, clock and stobe pins. */
     TM1638(byte dataPin, byte clockPin, byte strobePin, boolean activateDisplay = true, byte intensity = 7);
+	virtual ~TM1638();
 
     /** Set the display (segments and LEDs) active or off and intensity (range from 0-7). */
     void setupDisplay(boolean active, byte intensity);
 
     /** Set the display to a unsigned hexadecimal number (with or without leading zeros) */
-    void setDisplayToHexNumber(unsigned long number, byte dots, boolean leadingZeros = true);
+    void setDisplayToHexNumber(unsigned long number, byte dots, boolean leadingZeros = true,
+		const byte numberFont[] = NUMBER_FONT);
     /** Set the display to a unsigned decimal number (with or without leading zeros) */
-    void setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros = true);
+    void setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros = true,
+		const byte numberFont[] = NUMBER_FONT);
     /** Set the display to a unsigned binary number */
-    void setDisplayToBinNumber(byte number, byte dots);
+    void setDisplayToBinNumber(byte number, byte dots,
+		const byte numberFont[] = NUMBER_FONT);
     /** Set a single display at pos (starting at 0) to a digit (left to right) */ 
-    void setDisplayDigit(byte digit, byte pos, boolean dot);
-    /** Clear  a single display at pos (starting at 0, left to right) */ 
+    void setDisplayDigit(byte digit, byte pos, boolean dot,
+		const byte numberFont[] = NUMBER_FONT);
+	/** Set the display to an error message */
+	void setDisplayToError();
+	/** Clear  a single display at pos (starting at 0, left to right) */ 
     void clearDisplayDigit(byte pos, boolean dot);
     /** Set the display to the 8 values (left to right) */
     void setDisplay(const byte values[]);
@@ -59,14 +66,16 @@ class TM1638
 	void setDisplayToString(String string, const byte dots = 0, const byte font[] = FONT_DEFAULT);
 
     /** Set the LED at pos to color (TM1638_COLOR_RED, TM1638_COLOR_GREEN or both) */
-    void setLED(byte color, byte pos);
+    virtual void setLED(byte color, byte pos);
     /** Set the LEDs. MSB byte for the green LEDs, LSB for the red LEDs */
     void setLEDs(word led);
 
     /** Returns the pressed buttons as a bit set (left to right). */
-    byte getButtons();
+    virtual byte getButtons();
 
   protected:
+	virtual void sendChar(byte pos, byte data, boolean dot);
+
     void sendCommand(byte led);
     void sendData(byte add, byte data);
     void send(byte data);

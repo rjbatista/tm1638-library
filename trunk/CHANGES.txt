@@ -1,4 +1,5 @@
-- Support for Arduino IDE 1.0
+- Support for inverted module;
+- Support for Arduino IDE 1.0.
 
 Version 1.4.0
 
@@ -7,7 +8,7 @@ Version 1.4.0
 
 Version 1.3.2
 
-- ISSUE #5: Correction of string library import
+- ISSUE #5: Correction of string library import.
 
 Version 1.3.1
 
