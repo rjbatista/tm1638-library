@@ -10,6 +10,7 @@
       * [setDisplayDigit       setDisplayDigit]
       * [setDisplayToBinNumber setDisplayToBinNumber]
       * [setDisplayToDecNumber setDisplayToDecNumber]
+      * [setDisplayToError     setDisplayToError]     
       * [setDisplayToHexNumber setDisplayToHexNumber]
       * [setDisplayToString    setDisplayToString(char*)]
       * [setDisplayToString2   setDisplayToString(String)]
