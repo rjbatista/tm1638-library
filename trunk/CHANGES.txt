@@ -1,5 +1,8 @@
-- Support for inverted module;
-- Support for Arduino IDE 1.0.
+Version 1.5.0
+
+- support for inverted module;
+- support for Arduino IDE 1.0;
+- some restructuring.
 
 Version 1.4.0
 
