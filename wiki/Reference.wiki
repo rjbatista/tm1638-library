@@ -16,7 +16,7 @@ Great to use as a "helper/debugging" module.
 
 This library is designed to allow usage of simultaneous independent modules (chained or unchained).
 
-Basic usage is:
+Basic usage is (after including "TM1638.h"):
 {{{
 TM1638 module(8, 9, 7);
 }}}
@@ -30,6 +30,11 @@ TM1638 module2(8, 9, 6);
 }}}
 
 This defines two modules with data on pin 8, clock on pin 9 and strobes on pin 6 and 7.
+
+There is also support for inverted TM1638 modules. They are used just like regular TM1638 and can be instantiated (after including "InvertedTM1638.h") with:
+{{{
+InvertedTM1638 module(8, 9, 7);
+}}}
 
 = Library Reference =
 
