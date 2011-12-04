@@ -6,13 +6,14 @@
 Set a single display to a digit.
 
 {{{
-void setDisplayDigit(byte digit, byte pos, boolean dot);
+void setDisplayDigit(byte digit, byte pos, boolean dot, const byte numberFont[]);
 }}}
 
-|| Argument || Detail || Default ||
-|| digit|| The digit to set || _required_ ||
-|| pos|| The 7-segment display to set. 0 for the leftmost, 8 for the rightmost || _required_ ||
-|| dot|| The dot status for the display || _required_ ||
+|| Argument || Detail || Default || Since ||
+|| digit|| The digit to set || _required_ || ||
+|| pos|| The 7-segment display to set. 0 for the leftmost, 8 for the rightmost || _required_ || ||
+|| dot || The dot status for the display || _required_ || ||
+|| numberFont || The font (segment data) to use for numbers, defaulting to the built-in font. || NUMBER_FONT, the built-in number font || v1.5.0 ||
 
 = Example =
 
