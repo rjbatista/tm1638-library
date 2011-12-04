@@ -1,5 +1,5 @@
 /*
-TM1638.h - Library for TM1638.
+TM1638.cpp - Library implementation for TM1638.
 
 Copyright (C) 2011 Ricardo Batista (rjbatista <at> gmail <dot> com)
 
@@ -49,65 +49,76 @@ TM1638::TM1638(byte dataPin, byte clockPin, byte strobePin, boolean activateDisp
   digitalWrite(strobePin, HIGH);
 }
 
+TM1638::~TM1638()
+{
+	// nothing to do
+}
+
 void TM1638::setupDisplay(boolean active, byte intensity)
 {
   sendCommand(0x80 | (active ? 8 : 0) | min(7, intensity));
 }
 
-
-void TM1638::setDisplayToHexNumber(unsigned long number, byte dots, boolean leadingZeros)
+void TM1638::setDisplayToHexNumber(unsigned long number, byte dots, boolean leadingZeros,
+	const byte numberFont[])
 {
   for (int i = 0; i < 8; i++) {
-  if (!leadingZeros && number == 0) {
-    clearDisplayDigit(7 - i, (dots & (1 << i)) != 0);
-  } else {
-    setDisplayDigit(number & 0xF, 7 - i, (dots & (1 << i)) != 0);
-    number >>= 4;
+	if (!leadingZeros && number == 0) {
+		clearDisplayDigit(7 - i, (dots & (1 << i)) != 0);
+	} else {
+		setDisplayDigit(number & 0xF, 7 - i, (dots & (1 << i)) != 0, numberFont);
+		number >>= 4;
     }
   }
 }
 
-void TM1638::setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros)
+void TM1638::setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros,
+	const byte numberFont[])
 {
   if (number > 99999999L) {
-    setDisplay(ERROR);
+    setDisplayToError();
   } else {
     for (int i = 0; i < 8; i++) {
       if (number != 0) {
-        setDisplayDigit(number % 10, 7 - i, (dots & (1 << i)) != 0);
+        setDisplayDigit(number % 10, 7 - i, (dots & (1 << i)) != 0, numberFont);
         number /= 10;
       } else {
-      if (leadingZeros) {
-      setDisplayDigit(0, 7 - i, (dots & (1 << i)) != 0);
-    } else {
-      clearDisplayDigit(7 - i, (dots & (1 << i)) != 0);
-    }
+		  if (leadingZeros) {
+		  setDisplayDigit(0, 7 - i, (dots & (1 << i)) != 0, numberFont);
+		} else {
+		  clearDisplayDigit(7 - i, (dots & (1 << i)) != 0);
+		}
       }
     }
   }
 }
 
-void TM1638::setDisplayToBinNumber(byte number, byte dots)
+void TM1638::setDisplayToBinNumber(byte number, byte dots, const byte numberFont[])
 {
   for (int i = 0; i < 8; i++) {
-    setDisplayDigit((number & (1 << i)) == 0 ? 0 : 1, 7 - i, (dots & (1 << i)) != 0);
+    setDisplayDigit((number & (1 << i)) == 0 ? 0 : 1, 7 - i, (dots & (1 << i)) != 0, numberFont);
   }
 }
 
-void TM1638::setDisplayDigit(byte digit, byte pos, boolean dot)
+void TM1638::setDisplayDigit(byte digit, byte pos, boolean dot, const byte numberFont[])
 {
-  sendData(pos << 1, NUMBER_DATA[digit & 0xF] | (dot ? 0b10000000 : 0));
+  sendChar(pos, numberFont[digit & 0xF], dot);
+}
+
+void TM1638::setDisplayToError()
+{
+    setDisplay(ERROR_DATA);
 }
 
 void TM1638::clearDisplayDigit(byte pos, boolean dot)
 {
-  sendData(pos << 1, (dot ? 0b10000000 : 0));
+  sendChar(pos, 0, dot);
 }
 
 void TM1638::setDisplay(const byte values[])
 {
   for (int i = 0; i < 8; i++) {
-    sendData(i << 1, values[i]);
+    sendChar(i, values[i], 0);
   }
 }
 
@@ -121,7 +132,7 @@ void TM1638::clearDisplay()
 void TM1638::setDisplayToString(const char* string, const byte dots, const byte font[])
 {
   for (int i = 0; i < 8; i++) {
-    sendData(i << 1, font[string[i] - 32] | ((dots & (1 << (7 - i))) != 0 ? 0b10000000 : 0));
+    sendChar(i, font[string[i] - 32], dots & (1 << (7 - i)));
   }
 }
 
@@ -131,9 +142,9 @@ void TM1638::setDisplayToString(const String string, const byte dots, const byte
 
   for (int i = 0; i < 8; i++) {
     if (i < stringLength) {
-      sendData(i << 1, font[string.charAt(i) - 32] | ((dots & (1 << (7 - i))) != 0 ? 0b10000000 : 0));
+      sendChar(i, font[string.charAt(i) - 32], dots & (1 << (7 - i)));
     } else {
-      sendData(i << 1, 0);
+      sendChar(i, 0, dots & (1 << (7 - i)));
     }
   }
 }
@@ -146,17 +157,17 @@ void TM1638::setLED(byte color, byte pos)
 void TM1638::setLEDs(word leds)
 {
   for (int i = 0; i < 8; i++) {
-    byte val = 0;
+    byte color = 0;
 
     if (leds & (1 << i)) {
-      val |= 1;
+      color |= TM1638_COLOR_RED;
     }
 
     if (leds & (1 << (i + 8))) {
-      val |= 2;
+      color |= TM1638_COLOR_GREEN;
     }
 
-    sendData((i << 1) + 1, val);
+    setLED(color, i);
   }
 }
 
@@ -172,6 +183,11 @@ byte TM1638::getButtons(void)
   digitalWrite(strobePin, HIGH);
 
   return keys;
+}
+
+void TM1638::sendChar(byte pos, byte data, boolean dot)
+{
+	sendData(pos << 1, data | (dot ? 0b10000000 : 0));
 }
 
 void TM1638::sendCommand(byte cmd)
@@ -226,4 +242,3 @@ byte TM1638::receive()
 
   return temp;
 }
-

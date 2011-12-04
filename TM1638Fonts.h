@@ -1,9 +1,7 @@
 /*
-TM1638.h - Library for TM1638.
+TM1638Fonts.h - Font definition for TM1638.
 
 Copyright (C) 2011 Ricardo Batista (rjbatista <at> gmail <dot> com)
-
-Based on a sketch by: Martin Hubacek (http://www.martinhubacek.cz)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the version 3 GNU General Public License as
@@ -33,7 +31,7 @@ The bits are displayed by mapping bellow
 #define TM1638Fonts_h
 
 // definition for standard hexadecimal numbers
-const byte NUMBER_DATA[] = {
+const byte NUMBER_FONT[] = {
   0b00111111, // 0
   0b00000110, // 1
   0b01011011, // 2
@@ -53,7 +51,7 @@ const byte NUMBER_DATA[] = {
 };
 
 // definition for error
-const byte ERROR[] = {
+const byte ERROR_DATA[] = {
   0b01111001, // E
   0b01010000, // r
   0b01010000, // r

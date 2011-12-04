@@ -11,7 +11,8 @@ Includes:
 - Support for multiple chained tm1638;
 - Reading simultaneous button presses;
 - Support for dimming the display and LEDs;
-- Support for writing text.
+- Support for writing text;
+- Support for module in inverted position.
 
 See: TM1638 Display/LED module at http://www.dealextreme.com/p/81873?r=68099021
 
