@@ -54,6 +54,7 @@ InvertedTM1638 module(8, 9, 7);
 || [setDisplayDigit setDisplayDigit] || Set a single display to a digit. ||
 || [setDisplayToBinNumber setDisplayToBinNumber] || Set the display to a binary number. ||
 || [setDisplayToDecNumber setDisplayToDecNumber] || Set the display to a unsigned decimal number, with or without leading zeros. ||
+|| [setDisplayToError setDisplayToError] || Set the display to an error message. ||
 || [setDisplayToHexNumber setDisplayToHexNumber] || Set the display to a unsigned hexadecimal number, with or without leading zeros. ||
 || [setDisplayToString    setDisplayToString(char*)] || Set the display to the string. ||
 || [setDisplayToString2    setDisplayToString(String)] || Set the display to the string. ||
