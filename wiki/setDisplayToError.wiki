@@ -1,0 +1,20 @@
+#summary setDisplayToError Reference.
+#labels Phase-Implementation
+
+= setDisplayToError Reference =
+
+Set the display to an error message. Is called on overflow in [setDisplayToDecNumber setDisplayToDecNumber]
+
+{{{
+void setDisplayToError();
+}}}
+
+|| Argument || Detail || Default || Since ||
+|| || || || ||
+
+= Example =
+
+Display an error:
+{{{
+module1.setDisplayToError();
+}}}
