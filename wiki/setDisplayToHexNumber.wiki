@@ -6,13 +6,14 @@
 Set the display to a unsigned hexadecimal number, with or without leading zeros.
 
 {{{
-void setDisplayToHexNumber(unsigned long number, byte dots, boolean leadingZeros);
+void setDisplayToHexNumber(unsigned long number, byte dots, boolean leadingZeros, const byte numberFont[]);
 }}}
 
-|| Argument || Detail || Default ||
-|| number || The number to display || _required_ ||
-|| dots || The dots to set (bitwise) || _required_ ||
-|| leadingZeros || _true_ to display leading zeros, false otherwise || true ||
+|| Argument || Detail || Default || Since ||
+|| number || The number to display || _required_ || ||
+|| dots || The dots to set (bitwise) || _required_ || ||
+|| leadingZeros || _true_ to display leading zeros, false otherwise || true || ||
+|| numberFont || The font (segment data) to use for numbers, defaulting to the built-in font. || NUMBER_FONT, the built-in number font || v1.5.0 ||
 
 = Example =
 
