@@ -53,9 +53,5 @@ byte InvertedTM1638::getButtons()
 
 void InvertedTM1638::sendChar(byte pos, byte data, boolean dot)
 {
-	byte n = data;
-
-	n = n & 128 | n & 64 | (n & 4) << 3 | (n & 2) << 3 | (n & 1) << 3 | (n & 32) >> 3 | (n & 16) >> 3 | (n & 8) >> 3;
-
-	TM1638::sendChar(7 - pos, n, dot);
+	TM1638::sendChar(7 - pos, data & 0xC0 | (data & 0x07) << 3 | (data & 0x38) >> 3, dot);
 }
