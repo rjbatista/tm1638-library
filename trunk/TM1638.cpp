@@ -49,11 +49,6 @@ TM1638::TM1638(byte dataPin, byte clockPin, byte strobePin, boolean activateDisp
   digitalWrite(strobePin, HIGH);
 }
 
-TM1638::~TM1638()
-{
-	// nothing to do
-}
-
 void TM1638::setupDisplay(boolean active, byte intensity)
 {
   sendCommand(0x80 | (active ? 8 : 0) | min(7, intensity));
