@@ -124,22 +124,26 @@ void TM1638::clearDisplay()
   }
 }
 
-void TM1638::setDisplayToString(const char* string, const byte dots, const byte font[])
+void TM1638::setDisplayToString(const char* string, const byte dots, const byte pos, const byte font[])
 {
-  for (int i = 0; i < 8; i++) {
-    sendChar(i, font[string[i] - 32], dots & (1 << (7 - i)));
+  for (int i = 0; i < 8 - pos; i++) {
+  	if (string[i] != '\0') {
+	  sendChar(i + pos, font[string[i] - 32], dots & (1 << (7 - i)));
+	} else {
+	  break;
+	}
   }
 }
 
-void TM1638::setDisplayToString(const String string, const byte dots, const byte font[])
+void TM1638::setDisplayToString(const String string, const byte dots, const byte pos, const byte font[])
 {
   int stringLength = string.length();
 
-  for (int i = 0; i < 8; i++) {
+  for (int i = 0; i < 8 - pos; i++) {
     if (i < stringLength) {
-      sendChar(i, font[string.charAt(i) - 32], dots & (1 << (7 - i)));
+      sendChar(i + pos, font[string.charAt(i) - 32], dots & (1 << (7 - i)));
     } else {
-      sendChar(i, 0, dots & (1 << (7 - i)));
+      break;
     }
   }
 }

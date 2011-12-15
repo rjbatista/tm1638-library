@@ -1,3 +1,6 @@
+- ISSUE #10: Support for starting position on setDisplayToString() methods.
+  WARNING: setDisplayToString methods have changed prototype and are incompatible with code compiled for 1.5.x (if you specified a custom font)
+
 Version 1.5.2
 
 - ISSUE #9: Backwards compatibility with previous Arduino IDE.
