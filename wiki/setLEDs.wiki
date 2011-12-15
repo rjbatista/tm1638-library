@@ -16,15 +16,15 @@ void setLEDs(word led);
 
 Light up all the red LEDs.
 {{{
-module1.setLEDs(0x0F);
+module1.setLEDs(0x00FF);
 }}}
 
 Light up all the green LEDs.
 {{{
-module1.setLEDs(0xF0);
+module1.setLEDs(0xFF00);
 }}}
 
 Light up all the LEDs.
 {{{
-module1.setLEDs(0xFF);
+module1.setLEDs(0xFFFF);
 }}}
