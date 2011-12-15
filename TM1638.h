@@ -60,9 +60,11 @@ class TM1638
     /** Clear the display */
 	void clearDisplay();
     /** Set the display to the string (defaults to built in font) */
-	void setDisplayToString(const char* string, const byte dots = 0, const byte font[] = FONT_DEFAULT);
+	void setDisplayToString(const char* string, const byte dots = 0, const byte pos = 0,
+		const byte font[] = FONT_DEFAULT);
     /** Set the display to the String (defaults to built in font) */
-	void setDisplayToString(String string, const byte dots = 0, const byte font[] = FONT_DEFAULT);
+	void setDisplayToString(String string, const byte dots = 0, const byte pos = 0,
+		const byte font[] = FONT_DEFAULT);
 
     /** Set the LED at pos to color (TM1638_COLOR_RED, TM1638_COLOR_GREEN or both) */
     virtual void setLED(byte color, byte pos);
