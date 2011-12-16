@@ -10,7 +10,7 @@ void clearDisplayDigit(byte pos, boolean dot);
 }}}
 
 || Argument || Detail || Default ||
-|| pos || The display to clear, starting at position 0 (leftmost) to  to 8 (rightmost). || _required_ ||
+|| pos || The display to clear, starting at position 0 (leftmost) to  to 7 (rightmost). || _required_ ||
 || dot || The dot state on the 7-segment display || _required_ ||
 
 = Example =
