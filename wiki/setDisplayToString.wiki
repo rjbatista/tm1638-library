@@ -6,13 +6,14 @@
 Set the display to the string.
 
 {{{
-void setDisplayToString(const char* string, const byte dots, const byte font[]);
+void setDisplayToString(const char* string, const byte dots, const byte pos, const byte font[]);
 }}}
 
-|| Argument || Detail || Default ||
-|| string || The text to display || _required_ ||
-|| dots || The dots to set (bitwise) || 0 ||
-|| font || The font (segment data) to use, defaulting to the built-in font. || FONT_DEFAULT, the built-in font ||
+|| Argument || Detail || Default || Since ||
+|| string || The text to display || _required_ || ||
+|| dots || The dots to set (bitwise) || 0 || v1.4.0 ||
+|| pos || The position to start. 0 for the leftmost, 8 for the rightmost || required || v1.6.0 ||
+|| font || The font (segment data) to use, defaulting to the built-in font. || FONT_DEFAULT, the built-in font || ||
 
 = Example =
 
@@ -28,6 +29,15 @@ Display "Ricardo " with dots on every other word:
 char* name = "Ricardo ";
 
 module.setDisplayToString(name, 0b10101010);
+}}}
+
+Display "foo bar":
+{{{
+char* foo = "foo";
+char* bar = "bar";
+
+module.setDisplayToString(foo, 0);
+module.setDisplayToString(bar, 0, 4);
 }}}
 
 = Font character data =
