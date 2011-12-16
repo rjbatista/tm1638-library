@@ -11,7 +11,7 @@ void setLED(byte color, byte pos);
 
 || Argument || Detail || Default ||
 || color || The color of the LED. Can be set to _TM1638_COLOR_RED_ (for red), _TM1638_COLOR_GREEN_ (for green) or both. || _required_ ||
-|| pos || The LED to set. 0 for the leftmost, 8 for the rightmost	 || _required_ ||
+|| pos || The LED to set. 0 for the leftmost, 7 for the rightmost	 || _required_ ||
 
 = Example =
 
