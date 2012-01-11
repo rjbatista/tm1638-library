@@ -25,19 +25,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	#include "WProgram.h"
 #endif
 
-#include "TM1638Fonts.h"
+#include "TM16XX.h"
+#include "TM16XXFonts.h"
 
 #define TM1638_COLOR_RED    1
 #define TM1638_COLOR_GREEN  2
 
-class TM1638
+class TM1638 : public TM16XX
 {
   public:
     /** Instantiate a tm1638 module specifying the display state, the starting intensity (0-7) data, clock and stobe pins. */
     TM1638(byte dataPin, byte clockPin, byte strobePin, boolean activateDisplay = true, byte intensity = 7);
-
-    /** Set the display (segments and LEDs) active or off and intensity (range from 0-7). */
-    void setupDisplay(boolean active, byte intensity);
 
     /** Set the display to a unsigned hexadecimal number (with or without leading zeros) */
     void setDisplayToHexNumber(unsigned long number, byte dots, boolean leadingZeros = true,
@@ -48,23 +46,6 @@ class TM1638
     /** Set the display to a unsigned binary number */
     void setDisplayToBinNumber(byte number, byte dots,
 		const byte numberFont[] = NUMBER_FONT);
-    /** Set a single display at pos (starting at 0) to a digit (left to right) */ 
-    void setDisplayDigit(byte digit, byte pos, boolean dot,
-		const byte numberFont[] = NUMBER_FONT);
-	/** Set the display to an error message */
-	void setDisplayToError();
-	/** Clear  a single display at pos (starting at 0, left to right) */ 
-    void clearDisplayDigit(byte pos, boolean dot);
-    /** Set the display to the 8 values (left to right) */
-    void setDisplay(const byte values[]);
-    /** Clear the display */
-	void clearDisplay();
-    /** Set the display to the string (defaults to built in font) */
-	void setDisplayToString(const char* string, const byte dots = 0, const byte pos = 0,
-		const byte font[] = FONT_DEFAULT);
-    /** Set the display to the String (defaults to built in font) */
-	void setDisplayToString(String string, const byte dots = 0, const byte pos = 0,
-		const byte font[] = FONT_DEFAULT);
 
     /** Set the LED at pos to color (TM1638_COLOR_RED, TM1638_COLOR_GREEN or both) */
     virtual void setLED(byte color, byte pos);
@@ -75,17 +56,7 @@ class TM1638
     virtual byte getButtons();
 
   protected:
-	virtual void sendChar(byte pos, byte data, boolean dot);
-
-    void sendCommand(byte led);
-    void sendData(byte add, byte data);
-    void send(byte data);
-    byte receive();
-
-  private:
-    byte dataPin;
-    byte clockPin;
-    byte strobePin;
+    virtual void sendChar(byte pos, byte data, boolean dot);
 };
 
 #endif

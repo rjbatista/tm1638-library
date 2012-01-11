@@ -1,5 +1,5 @@
 /*
-TM1638.h - Library for TM1638.
+Library examples for TM1638.
 
 Copyright (C) 2011 Ricardo Batista <rjbatista at gmail dot com>
 
