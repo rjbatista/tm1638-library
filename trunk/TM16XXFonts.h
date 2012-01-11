@@ -1,5 +1,5 @@
 /*
-TM1638Fonts.h - Font definition for TM1638.
+TM16XXFonts.h - Font definition for TM16XX.
 
 Copyright (C) 2011 Ricardo Batista (rjbatista <at> gmail <dot> com)
 
@@ -27,8 +27,8 @@ The bits are displayed by mapping bellow
 
 */
 
-#ifndef TM1638Fonts_h
-#define TM1638Fonts_h
+#ifndef TM16XXFonts_h
+#define TM16XXFonts_h
 
 // definition for standard hexadecimal numbers
 const byte NUMBER_FONT[] = {
