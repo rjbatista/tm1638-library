@@ -6,7 +6,9 @@
 # Datatypes (KEYWORD1)
 #######################################
 
+TM16XX	KEYWORD1
 TM1638	KEYWORD1
+TM1640	KEYWORD1
 InvertedTM1638	KEYWORD1
 
 #######################################
