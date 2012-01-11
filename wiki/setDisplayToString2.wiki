@@ -1,7 +1,7 @@
 #summary setDisplayToString(String) Reference.
 #labels Phase-Implementation
 
-= setDisplayToString Reference =
+= setDisplayToString Reference (TM1638/TM1640) =
 
 Set the display to the string.
 
@@ -12,7 +12,7 @@ void setDisplayToString(String string, const byte dots, const byte pos, const by
 || Argument || Detail || Default || Since ||
 || string || The text to display || _required_ || ||
 || dots || The dots to set (bitwise) || 0 || v1.4.0 ||
-|| pos || The position to start. 0 for the leftmost, 7 for the rightmost || required || v1.6.0 ||
+|| pos || The position to start. 0 for the leftmost || required || v1.6.0 ||
 || font || The font (segment data) to use, defaulting to the built-in font. || FONT_DEFAULT, the built-in font || ||
 
 = Example =

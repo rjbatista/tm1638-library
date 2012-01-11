@@ -1,7 +1,7 @@
 #summary setDisplayToBinNumber Reference.
 #labels Phase-Implementation
 
-= setDisplayToBinNumber Reference =
+= setDisplayToBinNumber Reference (TM1638) =
 
 Set the display to a binary number.
 

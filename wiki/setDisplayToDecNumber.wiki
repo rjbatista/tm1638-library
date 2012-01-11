@@ -1,7 +1,7 @@
 #summary setDisplayToDecNumber Reference.
 #labels Phase-Implementation
 
-= setDisplayToDecNumber Reference =
+= setDisplayToDecNumber Reference (TM1638) =
 
 Set the display to a unsigned decimal number, with or without leading zeros.
 

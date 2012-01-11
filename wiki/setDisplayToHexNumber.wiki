@@ -1,7 +1,7 @@
 #summary setDisplayToHexNumber Reference.
 #labels Phase-Implementation
 
-= setDisplayToHexNumber Reference =
+= setDisplayToHexNumber Reference (TM1638) =
 
 Set the display to a unsigned hexadecimal number, with or without leading zeros.
 

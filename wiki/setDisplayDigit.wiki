@@ -1,7 +1,7 @@
 #summary setDisplayDigit Reference.
 #labels Phase-Implementation
 
-= setDisplayDigit Reference =
+= setDisplayDigit Reference (TM1638/TM1640) =
 
 Set a single display to a digit.
 

@@ -1,7 +1,7 @@
 #summary setupDisplay Reference.
 #labels Phase-Implementation
 
-= setupDisplay Reference =
+= setupDisplay Reference (TM1638/TM1640) =
 
 Set the display (all 7-segments) and LEDs on or off and the specifies the intensity.
 

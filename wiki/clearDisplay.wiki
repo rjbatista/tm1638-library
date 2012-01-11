@@ -1,7 +1,7 @@
 #summary Method "clearDisplay" Reference.
 #labels Phase-Implementation
 
-= clearDisplay Reference =
+= clearDisplay Reference (TM1638/TM1640) =
 
 Clears the display.
 

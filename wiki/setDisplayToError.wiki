@@ -1,7 +1,7 @@
 #summary setDisplayToError Reference.
 #labels Phase-Implementation
 
-= setDisplayToError Reference =
+= setDisplayToError Reference (TM1638/TM1640) =
 
 Set the display to an error message. Is called on overflow in [setDisplayToDecNumber setDisplayToDecNumber]
 

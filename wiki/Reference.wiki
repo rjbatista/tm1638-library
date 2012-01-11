@@ -2,15 +2,18 @@
 #labels Phase-Implementation,Featured
 #sidebar TableOfContents
 
-= TM1638 library =
+= TM1638/TM1640 library =
 
-This is a library for interacting an arduino with a TM1638 module.
+This is a library for interacting an arduino with a TM1638/TM1640 module.
 
 The [http://www.dealextreme.com/p/81873?r=68099021 TM1638 module] is a module with 8x 7-segment display (8 digits), 8x 2 color (red and green) LED and 8x buttons and is controlled using serial commands.
 
 The TM1638 module is designed to be chainable. It uses only one pin for _clock_, one pin for _data_ and an additional pin (_strobe_) for each module you chain up to 6... that's a total of 8 pins for controlling 48 (8x6) 7-segment digits, 48 buttons and 96 LEDs (48 red and 48 green).
 
 Great to use as a "helper/debugging" module.
+
+The [http://www.dealextreme.com/p/104311?r=68099021 TM1640 module] is a module with 16x 7-segment display (8 digits) and is controlled using serial commands.
+
 
 = Usage =
 
@@ -36,6 +39,12 @@ There is also support for inverted TM1638 modules. They are used just like regul
 InvertedTM1638 module(8, 9, 7);
 }}}
 
+The TM1640 modules are used just like regular TM1638 and can be instantiated (after including "TM1640.h") with:
+{{{
+TM1640 module(8, 9);
+}}}
+
+
 = Library Reference =
 
 [TableOfContents Full Reference]
@@ -47,17 +56,17 @@ InvertedTM1638 module(8, 9, 7);
 == Methods ==
 
 || *Method* || *Description* ||
-|| [clearDisplay clearDisplay] || Clears the display. ||
-|| [clearDisplayDigit clearDisplayDigit] || Clear a single 7-segment display. ||
-|| [getButtons getButtons] || Returns the pressed buttons as a bit set (left to right). ||
-|| [setDisplay setDisplay] || Set the 7-segment displays to the 8 values (left to right). ||
-|| [setDisplayDigit setDisplayDigit] || Set a single display to a digit. ||
-|| [setDisplayToBinNumber setDisplayToBinNumber] || Set the display to a binary number. ||
-|| [setDisplayToDecNumber setDisplayToDecNumber] || Set the display to a unsigned decimal number, with or without leading zeros. ||
-|| [setDisplayToError setDisplayToError] || Set the display to an error message. ||
-|| [setDisplayToHexNumber setDisplayToHexNumber] || Set the display to a unsigned hexadecimal number, with or without leading zeros. ||
-|| [setDisplayToString    setDisplayToString(char*)] || Set the display to the string. ||
-|| [setDisplayToString2    setDisplayToString(String)] || Set the display to the string. ||
-|| [setLED                setLED] || Controls a LED. ||
-|| [setLEDs               setLEDs] || Set all the LEDs. ||
-|| [setupDisplay          setupDisplay] || Set the display (all 7-segments) and LEDs on or off and the specifies the intensity. ||
+|| [clearDisplay clearDisplay] || Clears the display. (TM1638/TM1640) ||
+|| [clearDisplayDigit clearDisplayDigit] || Clear a single 7-segment display. (TM1638/TM1640) ||
+|| [getButtons getButtons] || Returns the pressed buttons as a bit set (left to right). (TM1638) ||
+|| [setDisplay setDisplay] || Set the 7-segment displays to the 8 values (left to right). (TM1638/TM1640) ||
+|| [setDisplayDigit setDisplayDigit] || Set a single display to a digit. (TM1638/TM1640) ||
+|| [setDisplayToBinNumber setDisplayToBinNumber] || Set the display to a binary number. (TM1638) ||
+|| [setDisplayToDecNumber setDisplayToDecNumber] || Set the display to a unsigned decimal number, with or without leading zeros. (TM1638) ||
+|| [setDisplayToError setDisplayToError] || Set the display to an error message. (TM1638/TM1640) ||
+|| [setDisplayToHexNumber setDisplayToHexNumber] || Set the display to a unsigned hexadecimal number, with or without leading zeros. (TM1638) ||
+|| [setDisplayToString    setDisplayToString(char*)] || Set the display to the string. (TM1638/TM1640) ||
+|| [setDisplayToString2    setDisplayToString(String)] || Set the display to the string. (TM1638/TM1640) ||
+|| [setLED                setLED] || Controls a LED. (TM1638) ||
+|| [setLEDs               setLEDs] || Set all the LEDs. (TM1638) ||
+|| [setupDisplay          setupDisplay] || Set the display (all 7-segments) and LEDs on or off and the specifies the intensity. (TM1638/TM1640) ||

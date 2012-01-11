@@ -1,7 +1,7 @@
 #summary getButtons Reference.
 #labels Phase-Implementation
 
-= getButtons Reference =
+= getButtons Reference (TM1638) =
 
 Returns the pressed buttons as a bit set (left to right).
 

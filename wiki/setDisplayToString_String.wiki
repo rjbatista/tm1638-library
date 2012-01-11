@@ -1,7 +1,7 @@
 #summary setDisplayToString(String) Reference.
 #labels Phase-Implementation
 
-= setDisplayToString Reference =
+= setDisplayToString Reference (TM1638/TM1640) =
 
 Set the display to the string.
 
