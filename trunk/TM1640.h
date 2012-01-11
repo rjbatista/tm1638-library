@@ -34,10 +34,6 @@ class TM1640 : public TM16XX
 	/** Instantiate a tm1640 module specifying the display state, the starting intensity (0-7) data and clock pins. */
   	TM1640(byte dataPin, byte clockPin, boolean activateDisplay = true, byte intensity = 7);
 
-    /** Set the display to a unsigned decimal number (with or without leading zeros) */
-    void setDisplayToDecNumber(unsigned long number, word dots, boolean leadingZeros = true,
-		const byte numberFont[] = NUMBER_FONT);
-
   protected:
     virtual void sendChar(byte pos, byte data, boolean dot);
 };
