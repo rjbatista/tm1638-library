@@ -165,3 +165,9 @@ byte TM16XX::receive()
 
   return temp;
 }
+
+#if !defined(ARDUINO) || ARDUINO < 100
+// empty implementation instead of pure virtual for older Arduino IDE
+void TM16XX::sendChar(byte pos, byte data, boolean dot) {}
+#endif
+
