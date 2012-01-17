@@ -82,11 +82,11 @@ void TM1638::setLEDs(word leds)
   for (int i = 0; i < displays; i++) {
     byte color = 0;
 
-    if (leds & (1 << i) != 0) {
+    if ((leds & (1 << i)) != 0) {
       color |= TM1638_COLOR_RED;
     }
 
-    if (leds & (1 << (i + 8)) != 0) {
+    if ((leds & (1 << (i + 8))) != 0) {
       color |= TM1638_COLOR_GREEN;
     }
 
