@@ -59,7 +59,13 @@ class TM16XX
 		const byte font[] = FONT_DEFAULT);
 
   protected:
-	virtual void sendChar(byte pos, byte data, boolean dot) = 0;
+	#if defined(ARDUINO) && ARDUINO >= 100
+		// pure virtual is NOT supported in older Arduino IDE
+		virtual void sendChar(byte pos, byte data, boolean dot) = 0;
+	#else
+		virtual void sendChar(byte pos, byte data, boolean dot);
+	#endif
+	
 	
     virtual void sendCommand(byte led);
     virtual void sendData(byte add, byte data);
