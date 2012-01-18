@@ -1,3 +1,5 @@
+Version 2.0.1
+
 - ISSUE #15: Backwards compatibility with previous Arduino IDE (pure virtual functions were not supported);
 - ISSUE #18: Corrected problem with setLEDs() caused by changes in the previous version.
 
