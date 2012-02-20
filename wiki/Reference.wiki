@@ -63,6 +63,7 @@ TM1640 module(8, 9);
 || [setDisplayDigit setDisplayDigit] || Set a single display to a digit. (TM1638/TM1640) ||
 || [setDisplayToBinNumber setDisplayToBinNumber] || Set the display to a binary number. (TM1638) ||
 || [setDisplayToDecNumber setDisplayToDecNumber] || Set the display to a unsigned decimal number, with or without leading zeros. (TM1638) ||
+|| [setDisplayToSignedDecNumber setDisplayToSignedDecNumber] || Set the display to a signed decimal number, with or without leading zeros. (TM1638) ||
 || [setDisplayToError setDisplayToError] || Set the display to an error message. (TM1638/TM1640) ||
 || [setDisplayToHexNumber setDisplayToHexNumber] || Set the display to a unsigned hexadecimal number, with or without leading zeros. (TM1638) ||
 || [setDisplayToString    setDisplayToString(char*)] || Set the display to the string. (TM1638/TM1640) ||
