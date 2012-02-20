@@ -93,7 +93,7 @@ void TM16XX::setDisplayToString(const char* string, const word dots, const byte 
 {
   for (int i = 0; i < displays - pos; i++) {
   	if (string[i] != '\0') {
-	  sendChar(i + pos, font[string[i] - 32], dots & (1 << (displays - i - 1)) != 0);
+	  sendChar(i + pos, font[string[i] - 32], (dots & (1 << (displays - i - 1))) != 0);
 	} else {
 	  break;
 	}
@@ -106,7 +106,7 @@ void TM16XX::setDisplayToString(const String string, const word dots, const byte
 
   for (int i = 0; i < displays - pos; i++) {
     if (i < stringLength) {
-      sendChar(i + pos, font[string.charAt(i) - 32], dots & (1 << (displays - i - 1)) != 0);
+      sendChar(i + pos, font[string.charAt(i) - 32], (dots & (1 << (displays - i - 1))) != 0);
     } else {
       break;
     }
