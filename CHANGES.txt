@@ -1,3 +1,5 @@
+Version 2.1.0
+
 - ISSUE #20: Support for negative decimal numbers;
 - ISSUE #19: Corrected setDisplayToString dot bug.
 
