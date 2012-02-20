@@ -44,18 +44,18 @@ void TM1638::setDisplayToHexNumber(unsigned long number, byte dots, boolean lead
   }
 }
 
-void TM1638::setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros,
+void TM1638::setDisplayToDecNumberAt(unsigned long number, byte dots, byte startingPos, boolean leadingZeros,
 	const byte numberFont[])
 {
   if (number > 99999999L) {
     setDisplayToError();
   } else {
-    for (int i = 0; i < displays; i++) {
+    for (int i = 0; i < displays - startingPos; i++) {
       if (number != 0) {
         setDisplayDigit(number % 10, displays - i - 1, (dots & (1 << i)) != 0, numberFont);
         number /= 10;
       } else {
-		  if (leadingZeros) {
+		if (leadingZeros) {
 		  setDisplayDigit(0, displays - i - 1, (dots & (1 << i)) != 0, numberFont);
 		} else {
 		  clearDisplayDigit(displays - i - 1, (dots & (1 << i)) != 0);
@@ -63,6 +63,27 @@ void TM1638::setDisplayToDecNumber(unsigned long number, byte dots, boolean lead
       }
     }
   }
+}
+
+void TM1638::setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros,
+	const byte numberFont[])
+{
+	setDisplayToDecNumberAt(number, dots, leadingZeros, 0, numberFont);
+}
+
+void TM1638::setDisplayToSignedDecNumber(signed long number, byte dots, boolean leadingZeros,
+		const byte numberFont[])
+{
+	if (number >= 0) {
+		setDisplayToDecNumberAt(number, dots, 0, leadingZeros, numberFont);
+	} else {
+		if (-number > 9999999L) {
+		    setDisplayToError();
+		} else {
+			setDisplayToDecNumberAt(-number, dots, 1, leadingZeros, numberFont);
+			sendChar(0, MINUS, (dots & (0x80)) != 0);
+		}
+	}
 }
 
 void TM1638::setDisplayToBinNumber(byte number, byte dots, const byte numberFont[])

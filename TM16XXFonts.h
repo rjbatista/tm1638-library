@@ -50,6 +50,8 @@ const byte NUMBER_FONT[] = {
   0b01110001  // F
 };
 
+const byte MINUS = 0b01000000;
+
 // definition for error
 const byte ERROR_DATA[] = {
   0b01111001, // E
