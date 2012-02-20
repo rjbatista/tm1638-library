@@ -43,6 +43,9 @@ class TM1638 : public TM16XX
     /** Set the display to a unsigned decimal number (with or without leading zeros) */
     void setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros = true,
 		const byte numberFont[] = NUMBER_FONT);
+    /** Set the display to a signed decimal number (with or without leading zeros) */
+    void setDisplayToSignedDecNumber(signed long number, byte dots, boolean leadingZeros = true,
+		const byte numberFont[] = NUMBER_FONT);
     /** Set the display to a unsigned binary number */
     void setDisplayToBinNumber(byte number, byte dots,
 		const byte numberFont[] = NUMBER_FONT);
@@ -57,6 +60,8 @@ class TM1638 : public TM16XX
 
   protected:
     virtual void sendChar(byte pos, byte data, boolean dot);
+    void setDisplayToDecNumberAt(unsigned long number, byte dots, byte startingPos,
+    	boolean leadingZeros, const byte numberFont[]);
 };
 
 #endif
