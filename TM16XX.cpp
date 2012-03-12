@@ -54,6 +54,12 @@ TM16XX::TM16XX(byte dataPin, byte clockPin, byte strobePin, byte displays, boole
 void TM16XX::setupDisplay(boolean active, byte intensity)
 {
   sendCommand(0x80 | (active ? 8 : 0) | min(7, intensity));
+
+  // necessary for the TM1640
+  digitalWrite(strobePin, LOW);
+  digitalWrite(clockPin, LOW);
+  digitalWrite(clockPin, HIGH);
+  digitalWrite(strobePin, HIGH);
 }
 
 void TM16XX::setDisplayDigit(byte digit, byte pos, boolean dot, const byte numberFont[])

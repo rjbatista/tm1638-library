@@ -36,3 +36,13 @@ void TM1640::sendChar(byte pos, byte data, boolean dot)
 {
   sendData(pos, data | (dot ? 0b10000000 : 0));
 }
+
+void TM1640::clearDisplay()
+{
+  digitalWrite(strobePin, LOW);
+  send(0xC0);
+  for (int i = 0; i < 16; i++) {
+    send(0x00);
+  }
+  digitalWrite(strobePin, HIGH);
+}

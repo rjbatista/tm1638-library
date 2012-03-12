@@ -33,6 +33,8 @@ class TM1640 : public TM16XX
   public:
 	/** Instantiate a tm1640 module specifying the display state, the starting intensity (0-7) data and clock pins. */
   	TM1640(byte dataPin, byte clockPin, boolean activateDisplay = true, byte intensity = 7);
+    /** Clear the display */
+	virtual void clearDisplay();
 
   protected:
     virtual void sendChar(byte pos, byte data, boolean dot);
