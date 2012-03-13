@@ -1,6 +1,6 @@
 Version 2.1.1
 
-- ISSUE #21: Problems on clearDisplay and setupDisplay;
+- ISSUE #21: Problems on clearDisplay and setupDisplay.
 
 Version 2.1.0
 
