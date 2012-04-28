@@ -24,7 +24,7 @@ char* name = "Ricardo.";
 module.setDisplayToString(name);
 }}}
 
-Display "Ricardo " with dots on every other word:
+Display "Ricardo " with dots on every other letter:
 {{{
 char* name = "Ricardo ";
 
