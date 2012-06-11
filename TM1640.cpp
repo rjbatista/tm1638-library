@@ -35,6 +35,12 @@ TM1640::TM1640(byte dataPin, byte clockPin, boolean activateDisplay, byte intens
 void TM1640::sendChar(byte pos, byte data, boolean dot)
 {
   sendData(pos, data | (dot ? 0b10000000 : 0));
+  
+  // necessary for the TM1640
+  digitalWrite(strobePin, LOW);
+  digitalWrite(clockPin, LOW);
+  digitalWrite(clockPin, HIGH);
+  digitalWrite(strobePin, HIGH);
 }
 
 void TM1640::clearDisplay()
