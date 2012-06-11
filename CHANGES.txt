@@ -1,3 +1,5 @@
+- ISSUE #24: Correction on setDisplayToDecNumber bug (thanks to hbx3485);
+
 Version 2.1.1
 
 - ISSUE #21: Problems on clearDisplay and setupDisplay.
