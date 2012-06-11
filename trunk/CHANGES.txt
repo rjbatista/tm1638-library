@@ -1,4 +1,5 @@
-- ISSUE #24: Correction on setDisplayToDecNumber bug (thanks to hbx3485);
+- ISSUE #22: corrected setDisplayDigit repeatedly with the dot set to true;
+- ISSUE #24: Correction on setDisplayToDecNumber bug (thanks to hbx3485).
 
 Version 2.1.1
 
