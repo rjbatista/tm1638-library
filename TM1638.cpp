@@ -68,7 +68,7 @@ void TM1638::setDisplayToDecNumberAt(unsigned long number, byte dots, byte start
 void TM1638::setDisplayToDecNumber(unsigned long number, byte dots, boolean leadingZeros,
 	const byte numberFont[])
 {
-	setDisplayToDecNumberAt(number, dots, leadingZeros, 0, numberFont);
+	setDisplayToDecNumberAt(number, dots, 0, leadingZeros, numberFont);
 }
 
 void TM1638::setDisplayToSignedDecNumber(signed long number, byte dots, boolean leadingZeros,
