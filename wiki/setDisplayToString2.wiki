@@ -6,7 +6,7 @@
 Set the display to the string.
 
 {{{
-void setDisplayToString(String string, const byte dots, const byte pos, const byte font[]);
+void setDisplayToString(String string, const word dots, const byte pos, const byte font[]);
 }}}
 
 || Argument || Detail || Default || Since ||
