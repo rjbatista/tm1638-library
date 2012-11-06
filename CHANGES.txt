@@ -1,6 +1,8 @@
+- ISSUE #26: Added a define TM1638_COLOR_NONE for clarity when clearing a single LED.
+
 Version 2.1.2
 
-- ISSUE #22: corrected setDisplayDigit repeatedly with the dot set to true;
+- ISSUE #22: Corrected setDisplayDigit repeatedly with the dot set to true;
 - ISSUE #24: Correction on setDisplayToDecNumber bug (thanks to hbx3485).
 
 Version 2.1.1
