@@ -28,6 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "TM16XX.h"
 #include "TM16XXFonts.h"
 
+#define TM1638_COLOR_NONE   0
 #define TM1638_COLOR_RED    1
 #define TM1638_COLOR_GREEN  2
 
