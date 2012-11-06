@@ -1,3 +1,5 @@
+Version 2.1.3
+
 - ISSUE #26: Added a define TM1638_COLOR_NONE for clarity when clearing a single LED.
 
 Version 2.1.2
