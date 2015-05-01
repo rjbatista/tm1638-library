@@ -8,6 +8,7 @@ A library for interacting an arduino with a TM1638/TM1640.
 
 Includes:
 - Support for the TM1638 and TM1640;
+- Support for common anode TM1638 module;
 - Helper methods for displaying numbers in decimal, hexadecimal and binary;
 - Support for multiple chained tm1638;
 - Reading simultaneous button presses;
