@@ -1,0 +1,81 @@
+Version 2.2.0
+
+- Support for common anode TM1638 module (QYF-TM1638);
+
+Version 2.1.3
+
+- ISSUE #26: Added a define TM1638_COLOR_NONE for clarity when clearing a single LED.
+
+Version 2.1.2
+
+- ISSUE #22: Corrected setDisplayDigit repeatedly with the dot set to true;
+- ISSUE #24: Correction on setDisplayToDecNumber bug (thanks to hbx3485).
+
+Version 2.1.1
+
+- ISSUE #21: Problems on clearDisplay and setupDisplay.
+
+Version 2.1.0
+
+- ISSUE #20: Support for negative decimal numbers;
+- ISSUE #19: Corrected setDisplayToString dot bug.
+
+Version 2.0.1
+
+- ISSUE #15: Backwards compatibility with previous Arduino IDE (pure virtual functions were not supported);
+- ISSUE #18: Corrected problem with setLEDs() caused by changes in the previous version.
+
+Version 2.0.0
+
+- Support for the TM1640;
+- Restructuring for supporting other modules.
+
+Version 1.6.0
+
+- ISSUE #10: Support for starting position on setDisplayToString() methods.
+  WARNING: setDisplayToString methods have changed prototype and are incompatible with code compiled for 1.5.x (if you specified a custom font)
+
+Version 1.5.2
+
+- ISSUE #9: Backwards compatibility with previous Arduino IDE.
+
+Version 1.5.1
+
+- ISSUE #7: New character data in default font for '*';
+- Minor optimization on inverted TM1638.
+
+Version 1.5.0
+
+- support for inverted module;
+- support for Arduino IDE 1.0;
+- some restructuring.
+
+Version 1.4.0
+
+- ISSUE #6: Support for specifying dots on setDisplayToString
+  WARNING: setDisplayToString methods have changed prototype and are incompatible with code compiled for 1.3.x (if you specified a custom font)
+
+Version 1.3.2
+
+- ISSUE #5: Correction of string library import.
+
+Version 1.3.1
+
+- changed pins on the examples to match schematics on project site.
+
+Version 1.3.0
+
+- added support for String Object;
+- added support for removing leading zeros in displaying numbers.
+
+Version 1.2.0
+
+- added support for writing text.
+
+Version 1.1.0
+
+- restructuring and added 2 proper examples, available in the arduino ide.
+
+Version 1.0.0
+
+- initial release.
