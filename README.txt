@@ -2,7 +2,7 @@ TM1638 library
 --------------
 Ricardo Batista
 Email: rjbatista(at)gmail.com
-URL: http://code.google.com/p/tm1638-library/
+URL: https://github.com/rjbatista/tm1638-library/
 
 A library for interacting an arduino with a TM1638/TM1640.
 
@@ -28,4 +28,4 @@ Just put the files on a TM1638 directory under "arduino/libraries" on your ardui
 PROJECT HOME
 ------------
 
-http://code.google.com/p/tm1638-library/
+https://github.com/rjbatista/tm1638-library/
