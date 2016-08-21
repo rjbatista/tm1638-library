@@ -1,0 +1,18 @@
+{
+  "name": "TM1638",
+  "version": "2.2.0",
+  "keywords": "led, driver",
+  "description": "A library for interacting an arduino with a TM1638/TM1640",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rjbatista/tm1638-library.git"
+  },
+  "frameworks": "arduino",
+  "platforms": [
+    "atmelavr",
+    "espressif"
+  ],
+  "export": {
+    "exclude": "*.pdf"
+  }
+}
