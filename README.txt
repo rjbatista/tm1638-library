@@ -6,6 +6,8 @@ URL: https://github.com/rjbatista/tm1638-library/
 
 A library for interacting an arduino with a TM1638/TM1640.
 
+This is version roughly updated to work with ESP32 as an faster than regularr arduino CPU unit.
+
 Includes:
 - Support for the TM1638 and TM1640;
 - Support for common anode TM1638 module;
