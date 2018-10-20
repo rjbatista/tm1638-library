@@ -44,6 +44,9 @@ TM16XX::TM16XX(byte dataPin, byte clockPin, byte strobePin, byte displays, boole
   sendCommand(0x80 | (activateDisplay ? 8 : 0) | min(7, intensity));
 
   digitalWrite(strobePin, LOW);
+  #ifdef ARDUINO_ARCH_ESP32
+	delayMicroseconds(2);
+  #endif
   send(0xC0);
   for (int i = 0; i < 16; i++) {
     send(0x00);
@@ -58,6 +61,9 @@ void TM16XX::setupDisplay(boolean active, byte intensity)
   // necessary for the TM1640
   digitalWrite(strobePin, LOW);
   digitalWrite(clockPin, LOW);
+  #ifdef ARDUINO_ARCH_ESP32
+	delayMicroseconds(2);
+  #endif
   digitalWrite(clockPin, HIGH);
   digitalWrite(strobePin, HIGH);
 }
@@ -122,6 +128,9 @@ void TM16XX::setDisplayToString(const String string, const word dots, const byte
 void TM16XX::sendCommand(byte cmd)
 {
   digitalWrite(strobePin, LOW);
+  #ifdef ARDUINO_ARCH_ESP32
+	delayMicroseconds(2);
+  #endif
   send(cmd);
   digitalWrite(strobePin, HIGH);
 }
@@ -139,9 +148,18 @@ void TM16XX::send(byte data)
 {
   for (int i = 0; i < 8; i++) {
     digitalWrite(clockPin, LOW);
+    #ifdef ARDUINO_ARCH_ESP32
+		delayMicroseconds(2);
+    #endif
     digitalWrite(dataPin, data & 1 ? HIGH : LOW);
+    #ifdef ARDUINO_ARCH_ESP32
+		delayMicroseconds(2);
+    #endif
     data >>= 1;
     digitalWrite(clockPin, HIGH);
+    #ifdef ARDUINO_ARCH_ESP32
+		delayMicroseconds(2);
+    #endif
   }
 }
 
@@ -157,7 +175,9 @@ byte TM16XX::receive()
     temp >>= 1;
 
     digitalWrite(clockPin, LOW);
-
+	#ifdef ARDUINO_ARCH_ESP32
+		delayMicroseconds(2);
+	#endif
     if (digitalRead(dataPin)) {
       temp |= 0x80;
     }
@@ -168,7 +188,10 @@ byte TM16XX::receive()
   // Pull-up off
   pinMode(dataPin, OUTPUT);
   digitalWrite(dataPin, LOW);
-
+  #ifdef ARDUINO_ARCH_ESP32
+	delayMicroseconds(2);
+  #endif
+  
   return temp;
 }
 
