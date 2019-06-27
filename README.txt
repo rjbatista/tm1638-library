@@ -15,6 +15,7 @@ Includes:
 - Support for dimming the display and LEDs;
 - Support for writing text;
 - Support for module in inverted position.
+- Now compatible with ESP8266 (NodeMCU v 1.0)
 
 See: TM1638 Display/LED module at http://www.dealextreme.com/p/81873?r=68099021
 See: TM1640 Display module at http://www.dealextreme.com/p/104311?r=68099021

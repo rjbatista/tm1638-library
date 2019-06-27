@@ -41,7 +41,7 @@ TM16XX::TM16XX(byte dataPin, byte clockPin, byte strobePin, byte displays, boole
   digitalWrite(clockPin, HIGH);
 
   sendCommand(0x40);
-  sendCommand(0x80 | (activateDisplay ? 8 : 0) | min(7, intensity));
+  sendCommand(0x80 | (activateDisplay ? 8 : 0) | min(byte(7), intensity));
 
   digitalWrite(strobePin, LOW);
   send(0xC0);
@@ -53,7 +53,7 @@ TM16XX::TM16XX(byte dataPin, byte clockPin, byte strobePin, byte displays, boole
 
 void TM16XX::setupDisplay(boolean active, byte intensity)
 {
-  sendCommand(0x80 | (active ? 8 : 0) | min(7, intensity));
+  sendCommand(0x80 | (active ? 8 : 0) | min(byte(7), intensity));
 
   // necessary for the TM1640
   digitalWrite(strobePin, LOW);
